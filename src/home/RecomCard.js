@@ -1,6 +1,7 @@
 import Button from "../common/Button";
 import { useState, useEffect } from "react";
 import Loader from "../common/Loader";
+import FavButton from "../common/FavButton";
 
 export default function RecomCard(props) {
 	const [objectInfo, setObjectInfo] = useState(null);
@@ -30,14 +31,24 @@ export default function RecomCard(props) {
 	async function changeObject(direction) {
 		setObjectInfo(null);
 		let index = objectInfo.index;
+    let newID
 
-		if (direction === "prev" && index > 0) {
-			index--;
-		} else if (direction === "next" && index < objectInfo.ids.length - 1) {
-			index++;
+		while (true) {
+			if (direction === "prev") {
+				index--;
+			} else {
+				index++;
+			}
+
+			if (index < 0) {
+				index = objectInfo.ids.length - 1;
+			} else if (index >= objectInfo.ids.length) {
+				index = 0;
+			}
+
+			newID = objectInfo.ids[index];
+      if (newID !== props.art.objectID) break;
 		}
-
-		const newID = objectInfo.ids[index];
 		const objectResponse = await fetch(
 			`https://collectionapi.metmuseum.org/public/collection/v1/objects/${newID}`
 		);
@@ -70,14 +81,19 @@ export default function RecomCard(props) {
 						handleClick={changeObject.bind(this, "next")}
 					/>
 					<div className="recommendation__name-wrapper">
-						<Button className="recommendation__bookmark" />
+						<FavButton
+							className="recommendation__bookmark"
+							art={objectInfo.object}
+						/>
 						<p className="recommendation__name">{objectInfo.object.title}</p>
 					</div>
-					<Button
-						href={objectInfo.object.artistWikidata_URL}
-						className="recommendation__artist"
-						text={objectInfo.object.artistDisplayName}
-					/>
+					{objectInfo.object.artistDisplayName && (
+						<Button
+							href={objectInfo.object.artistWikidata_URL}
+							className="recommendation__artist"
+							text={objectInfo.object.artistDisplayName}
+						/>
+					)}
 				</div>
 			) : (
 				<Loader />

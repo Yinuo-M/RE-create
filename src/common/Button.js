@@ -3,9 +3,7 @@ function Button(props) {
 		return (
 			<a
 				target="_blank"
-				className={`${props.className} ${
-					props.icon && props.className + "--" + props.icon
-				}`}
+				className={props.className}
 				href={props.href}
 			>
 				{props.text}
@@ -15,9 +13,7 @@ function Button(props) {
 
 	return (
 		<button
-			className={`${props.className} ${
-				props.icon && props.className + "--" + props.icon
-			}`}
+			className={props.className}
 			onClick={props.handleClick}
 		>
 			{props.text}

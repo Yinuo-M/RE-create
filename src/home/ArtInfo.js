@@ -1,4 +1,5 @@
 import Button from "../common/Button";
+import FavButton from "../common/FavButton";
 
 function ArtInfo(props) {
 	const art = props.art;
@@ -11,13 +12,11 @@ function ArtInfo(props) {
 				src={art.primaryImage}
 				alt={art.title + " " + art.artistDisplayName + " " + art.objectName}
 			/>
-			<Button
-				className="art-info__button"
-				icon="bookmark"
-				text="add to my favourites"
-				handleClick={() => {
-					alert("added");
-				}}
+			<FavButton
+				art={art}
+				className="art-info__bookmark"
+				textAdd="add to my favourites"
+				textRemove="remove from my favourites"
 			/>
 			<div className="art-info__wrapper">
 				<div className="art-info__block">
