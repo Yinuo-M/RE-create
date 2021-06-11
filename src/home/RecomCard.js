@@ -13,7 +13,7 @@ export default function RecomCard(props) {
 			);
 			const listResult = await listResponse.json();
 			const numOfObjects = listResult.total;
-			if ((numOfObjects === 0)) {
+			if (numOfObjects === 0) {
 				props.removeRecommendation();
 				return;
 			}
@@ -26,7 +26,6 @@ export default function RecomCard(props) {
 				`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`
 			);
 			const object = await objectResponse.json();
-			console.log(object);
 			setObjectInfo({ object, index: objectIndex, ids: objectIDs });
 		}
 
@@ -64,45 +63,52 @@ export default function RecomCard(props) {
 
 	return (
 		<div>
-			{objectInfo ? (
+			{
 				<div className="recommendation__card">
 					<Button
 						className="recommendation__arrow recommendation__arrow--prev"
 						handleClick={changeObject.bind(this, "prev")}
 					/>
-					<img
-						className="recommendation__img"
-						src={objectInfo.object.primaryImageSmall}
-						alt={
-							objectInfo.object.title +
-							" " +
-							objectInfo.object.artistDisplayName +
-							" " +
-							objectInfo.object.objectName
-						}
-					/>
 					<Button
 						className="recommendation__arrow recommendation__arrow-next"
 						handleClick={changeObject.bind(this, "next")}
 					/>
-					<div className="recommendation__name-wrapper">
-						<FavButton
-							className="recommendation__bookmark"
-							art={objectInfo.object}
-						/>
-						<p className="recommendation__name">{objectInfo.object.title}</p>
-					</div>
-					{objectInfo.object.artistDisplayName && (
-						<Button
-							href={objectInfo.object.artistWikidata_URL}
-							className="recommendation__artist"
-							text={objectInfo.object.artistDisplayName}
-						/>
+
+					{objectInfo ? (
+						<div className="recommendation__info">
+							<img
+								className="recommendation__img"
+								src={objectInfo.object.primaryImageSmall}
+								alt={
+									objectInfo.object.title.replace("<i>", " ") +
+									" " +
+									objectInfo.object.artistDisplayName +
+									" " +
+									objectInfo.object.objectName
+								}
+							/>
+							<div className="recommendation__name-wrapper">
+								<FavButton
+									className="recommendation__bookmark"
+									art={objectInfo.object}
+								/>
+								<p className="recommendation__name">
+									{objectInfo.object.title.replace("<i>", " ")}
+								</p>
+							</div>
+							{objectInfo.object.artistDisplayName && (
+								<Button
+									href={objectInfo.object.artistWikidata_URL}
+									className="recommendation__artist"
+									text={objectInfo.object.artistDisplayName}
+								/>
+							)}
+						</div>
+					) : (
+						<Loader />
 					)}
 				</div>
-			) : (
-				<Loader />
-			)}
+			}
 		</div>
 	);
 }

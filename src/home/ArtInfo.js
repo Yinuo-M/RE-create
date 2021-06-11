@@ -3,6 +3,7 @@ import FavButton from "../common/FavButton";
 
 function ArtInfo(props) {
 	const art = props.art;
+	const title = props.art.title.replace("<i>", " ");
 	const mediumList = art.medium.split("; ");
 
 	return (
@@ -10,7 +11,7 @@ function ArtInfo(props) {
 			<img
 				className="art-info__image"
 				src={art.primaryImage}
-				alt={art.title + " " + art.artistDisplayName + " " + art.objectName}
+				alt={title + " " + art.artistDisplayName + " " + art.objectName}
 			/>
 			<FavButton
 				art={art}
@@ -20,7 +21,7 @@ function ArtInfo(props) {
 			/>
 			<div className="art-info__wrapper">
 				<div className="art-info__block">
-					<h2 className="art-info__name">{art.title}</h2>
+					<h2 className="art-info__name">{title}</h2>
 					<p className="art-info__text">{art.objectDate}</p>
 				</div>
 				{art.artistRole && (

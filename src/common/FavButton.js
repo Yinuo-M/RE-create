@@ -21,7 +21,12 @@ export default function FavButton(props) {
 			return;
 		}
 
-		localStorage.setItem(id, props.art.primaryImageSmall);
+		const info = {
+			id,
+			image: props.art.primaryImageSmall,
+			date: Date.now(),
+		};
+		localStorage.setItem(id, JSON.stringify(info));
 		text = props.textRemove;
 		setAdded(true);
 	}
