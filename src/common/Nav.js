@@ -1,4 +1,5 @@
 import "./Nav.scss";
+import { Link } from "react-router-dom";
 
 function Nav(props) {
 	return (
@@ -8,8 +9,12 @@ function Nav(props) {
 					RE:<span className="nav__logo--colored">create</span>
 				</p>
 				<ul className="nav__menu">
-					<li className="nav__link nav__link--art">art of the day</li>
-					<li className="nav__link nav__link--fav">my favourites</li>
+					<li className="nav__link">
+						<Link to="/">art of the day</Link>
+					</li>
+					<li className="nav__link">
+						<Link to="/my-favourites">my favourites</Link>
+					</li>
 				</ul>
 			</nav>
 		</header>

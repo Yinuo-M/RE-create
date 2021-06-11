@@ -1,17 +1,27 @@
 import RecomCard from "./RecomCard";
+import { useState } from "react";
 
 function Recommendation(props) {
-	function handleClick() {
-		alert("added to your favourite");
+	const [recommendExist, setRecommendExist] = useState(true);
+
+	function removeRecommendation() {
+		setRecommendExist(false);
 	}
 
 	return (
-		<article className="recommendation">
-			<h2 className="recommendation__title">
-				More from the {props.art.culture} collection
-			</h2>
-			<RecomCard art={props.art} />
-		</article>
+		<div>
+			{recommendExist && (
+				<article className="recommendation">
+					<h2 className="recommendation__title">
+						More from the {props.art.culture} collection
+					</h2>
+					<RecomCard
+						art={props.art}
+						removeRecommendation={removeRecommendation}
+					/>
+				</article>
+			)}
+		</div>
 	);
 }
 

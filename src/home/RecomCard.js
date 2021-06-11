@@ -13,6 +13,11 @@ export default function RecomCard(props) {
 			);
 			const listResult = await listResponse.json();
 			const numOfObjects = listResult.total;
+			if ((numOfObjects === 0)) {
+				props.removeRecommendation();
+				return;
+			}
+
 			const objectIndex = Math.floor(Math.random() * numOfObjects);
 			const objectIDs = listResult.objectIDs;
 
@@ -26,12 +31,12 @@ export default function RecomCard(props) {
 		}
 
 		fetchObject();
-	}, [props.art.culture]);
+	}, [props]);
 
 	async function changeObject(direction) {
 		setObjectInfo(null);
 		let index = objectInfo.index;
-    let newID
+		let newID;
 
 		while (true) {
 			if (direction === "prev") {
@@ -47,7 +52,7 @@ export default function RecomCard(props) {
 			}
 
 			newID = objectInfo.ids[index];
-      if (newID !== props.art.objectID) break;
+			if (newID !== props.art.objectID) break;
 		}
 		const objectResponse = await fetch(
 			`https://collectionapi.metmuseum.org/public/collection/v1/objects/${newID}`

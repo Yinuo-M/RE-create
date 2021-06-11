@@ -3,6 +3,7 @@ function Button(props) {
 		return (
 			<a
 				target="_blank"
+				rel="noreferrer"
 				className={props.className}
 				href={props.href}
 			>
@@ -12,10 +13,7 @@ function Button(props) {
 	}
 
 	return (
-		<button
-			className={props.className}
-			onClick={props.handleClick}
-		>
+		<button className={props.className} onClick={props.handleClick}>
 			{props.text}
 		</button>
 	);
