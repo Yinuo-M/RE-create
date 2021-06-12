@@ -79,13 +79,7 @@ export default function RecomCard(props) {
 							<img
 								className="recommendation__img"
 								src={objectInfo.object.primaryImageSmall}
-								alt={
-									objectInfo.object.title.replace("<i>", " ") +
-									" " +
-									objectInfo.object.artistDisplayName +
-									" " +
-									objectInfo.object.objectName
-								}
+								alt={objectInfo.object.title}
 							/>
 							<div className="recommendation__name-wrapper">
 								<FavButton
@@ -93,7 +87,7 @@ export default function RecomCard(props) {
 									art={objectInfo.object}
 								/>
 								<p className="recommendation__name">
-									{objectInfo.object.title.replace("<i>", " ")}
+									{objectInfo.object.title.replace(/<\/?i>/g, "")}
 								</p>
 							</div>
 							{objectInfo.object.artistDisplayName && (

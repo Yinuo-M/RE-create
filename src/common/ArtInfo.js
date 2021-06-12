@@ -1,34 +1,39 @@
-import Button from "../common/Button";
-import FavButton from "../common/FavButton";
+import Button from "./Button";
+import FavButton from "./FavButton";
 
 function ArtInfo(props) {
 	const art = props.art;
-	const title = props.art.title.replace("<i>", " ");
+	const title = art.title.replace(/<\/?i>/g, "");
+	console.log(title);
 	const mediumList = art.medium.split("; ");
+	let desc;
+	if (art.country && art.objectDate) {
+		desc = art.country + ", " + art.objectDate;
+	} else {
+		desc = art.country + art.objectDate;
+	}
 
 	return (
-		<article className="art-info">
-			<img
-				className="art-info__image"
-				src={art.primaryImage}
-				alt={title + " " + art.artistDisplayName + " " + art.objectName}
-			/>
-			<FavButton
-				art={art}
-				className="art-info__bookmark"
-				textAdd="add to my favourites"
-				textRemove="remove from my favourites"
-			/>
-			<div className="art-info__wrapper">
+		<article className={`art-info art-info--${props.className}`}>
+			<div className="art-info__image-wrapper">
+				<img className="art-info__image" src={art.primaryImage} alt={title} />
+				<FavButton
+					art={art}
+					className="art-info__bookmark"
+					textAdd="add to my favourites"
+					textRemove="remove from my favourites"
+				/>
+			</div>
+			<div className="art-info__text-wrapper">
 				<div className="art-info__block">
 					<h2 className="art-info__name">{title}</h2>
-					<p className="art-info__text">{art.objectDate}</p>
+					<p className="art-info__text">{desc}</p>
 				</div>
-				{art.artistRole && (
+				{
 					<div className="art-info__block">
-						<h3 className="art-info__title">{art.artistRole}</h3>
+						<h3 className="art-info__title">{art.artistRole || "Artist"}</h3>
 						<p className="art-info__text art-info__text--italic">
-							{art.artistDisplayName}
+							{art.artistDisplayName || "unknown"}
 						</p>
 						<p className="art-info__text">{art.artistDisplayBio}</p>
 						{art.artistWikidata_URL && (
@@ -39,7 +44,7 @@ function ArtInfo(props) {
 							/>
 						)}
 					</div>
-				)}
+				}
 				<div className="art-info__block">
 					<h3 className="art-info__title">Details</h3>
 					{mediumList.map((medium) => (

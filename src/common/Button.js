@@ -4,7 +4,7 @@ function Button(props) {
 			<a
 				target="_blank"
 				rel="noreferrer"
-				className={props.className}
+				className={`standard-button ${props.className}`}
 				href={props.href}
 			>
 				{props.text}
@@ -13,7 +13,7 @@ function Button(props) {
 	}
 
 	return (
-		<button className={props.className} onClick={props.handleClick}>
+		<button className={`standard-button ${props.className}`} onClick={props.handleClick}>
 			{props.text}
 		</button>
 	);

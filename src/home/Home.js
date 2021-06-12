@@ -29,7 +29,7 @@ function Home() {
 				`https://collectionapi.metmuseum.org/public/collection/v1/objects/${randomID}`
 			);
 			artResult = await artResponse.json();
-			if (artResult.culture) break;
+			if (artResult.culture && !artResult.culture.includes(";")) break;
 		}
 
 		setArt(artResult);

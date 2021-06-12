@@ -8,12 +8,17 @@ function Recommendation(props) {
 		setRecommendExist(false);
 	}
 
+	const culture = props.art.culture.replace(
+		/, (probably|possibly).*/gi,
+		""
+	);
+
 	return (
 		<div>
 			{recommendExist && (
 				<article className="recommendation">
 					<h2 className="recommendation__title">
-						More from the {props.art.culture} collection
+						More from the {culture} collection
 					</h2>
 					<RecomCard
 						art={props.art}

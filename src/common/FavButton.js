@@ -21,10 +21,13 @@ export default function FavButton(props) {
 			return;
 		}
 
+		const title = props.art.title.replace(/<\/?i>/g, "");
+
 		const info = {
 			id,
 			image: props.art.primaryImageSmall,
 			date: Date.now(),
+			alt : title,
 		};
 		localStorage.setItem(id, JSON.stringify(info));
 		text = props.textRemove;

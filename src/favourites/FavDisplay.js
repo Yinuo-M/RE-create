@@ -1,3 +1,5 @@
+import FavItem from "./FavItem";
+
 export default function FavDisplay(props) {
 	let favList = [];
 	for (let key in localStorage) {
@@ -8,7 +10,6 @@ export default function FavDisplay(props) {
 		favList.push(favItem);
 	}
 
-
 	if (props.filterCriteria === "latest") {
 		favList.sort((a, b) => b.date - a.date);
 	} else if (props.filterCriteria === "earliest") {
@@ -18,11 +19,7 @@ export default function FavDisplay(props) {
 	}
 
 	const displayList = favList.map((fav) => {
-		return (
-			<li className="fav-list__item" key={fav.id}>
-				<img src={fav.image} className="fav-list__image" />
-			</li>
-		);
+		return <FavItem key={fav.id} info={fav} handleClick={props.handleClick} />;
 	});
 
 	return <ul className="fav-list">{displayList}</ul>;
