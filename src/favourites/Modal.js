@@ -7,16 +7,25 @@ export default function Modal(props) {
 	const [art, setArt] = useState(null);
 
 	useEffect(() => {
+		const controller = new AbortController();
+		const signal = controller.signal;
+		let cancel = false;
+
 		async function fetchArt() {
 			const artResponse = await fetch(
-				`https://collectionapi.metmuseum.org/public/collection/v1/objects/${props.id}`
+				`https://collectionapi.metmuseum.org/public/collection/v1/objects/${props.id}`,
+				signal
 			);
 			const artResult = await artResponse.json();
-			console.log(artResult);
-			setArt(artResult);
+			if (!cancel) setArt(artResult);
 		}
 
 		fetchArt();
+
+		return () => {
+			controller.abort();
+			cancel = true;
+		};
 	}, [props.id]);
 
 	return (

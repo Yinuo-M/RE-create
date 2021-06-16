@@ -1,15 +1,26 @@
 import Button from "../common/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Loader from "../common/Loader";
 import FavButton from "../common/FavButton";
+import "./RecomCard.scss";
 
 export default function RecomCard(props) {
 	const [objectInfo, setObjectInfo] = useState(null);
+	const [loading, setLoading] = useState(true);
+	const index = useRef(null);
+	const counter = useRef(0);
 
 	useEffect(() => {
+		const controller1 = new AbortController();
+		const signal1 = controller1.signal;
+		const controller2 = new AbortController();
+		const signal2 = controller2.signal;
+		let cancel = false;
+
 		async function fetchObject() {
 			const listResponse = await fetch(
-				`https://collectionapi.metmuseum.org/public/collection/v1/search?artistOrCulture=true&hasImages=true&q=${props.art.culture}`
+				`https://collectionapi.metmuseum.org/public/collection/v1/search?artistOrCulture=true&hasImages=true&q=${props.art.culture}`,
+				signal1
 			);
 			const listResult = await listResponse.json();
 			const numOfObjects = listResult.total;
@@ -23,34 +34,46 @@ export default function RecomCard(props) {
 
 			const objectID = objectIDs[objectIndex];
 			const objectResponse = await fetch(
-				`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`
+				`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`,
+				signal2
 			);
 			const object = await objectResponse.json();
-			setObjectInfo({ object, index: objectIndex, ids: objectIDs });
+			if (!cancel) {
+				index.current = objectIndex;
+				setObjectInfo({ object, index: objectIndex, ids: objectIDs });
+				setLoading(false);
+			}
 		}
 
 		fetchObject();
+
+		return () => {
+			controller1.abort();
+			controller2.abort();
+			cancel = true;
+		};
 	}, [props]);
 
 	async function changeObject(direction) {
-		setObjectInfo(null);
-		let index = objectInfo.index;
+		setLoading(true);
+		const oldCounter = counter.current;
+		counter.current++;
 		let newID;
 
 		while (true) {
 			if (direction === "prev") {
-				index--;
+				index.current--;
 			} else {
-				index++;
+				index.current++;
 			}
 
-			if (index < 0) {
-				index = objectInfo.ids.length - 1;
-			} else if (index >= objectInfo.ids.length) {
-				index = 0;
+			if (index.current < 0) {
+				index.current = objectInfo.ids.length - 1;
+			} else if (index.current >= objectInfo.ids.length) {
+				index.current = 0;
 			}
 
-			newID = objectInfo.ids[index];
+			newID = objectInfo.ids[index.current];
 			if (newID !== props.art.objectID) break;
 		}
 		const objectResponse = await fetch(
@@ -58,7 +81,10 @@ export default function RecomCard(props) {
 		);
 		const object = await objectResponse.json();
 
-		setObjectInfo({ object, index, ids: objectInfo.ids });
+		if (counter.current - 1 === oldCounter) {
+			setObjectInfo({ object, index: index.current, ids: objectInfo.ids });
+			setLoading(false);
+		}
 	}
 
 	return (
@@ -74,7 +100,7 @@ export default function RecomCard(props) {
 						handleClick={changeObject.bind(this, "next")}
 					/>
 
-					{objectInfo ? (
+					{!loading ? (
 						<div className="recommendation__info">
 							<img
 								className="recommendation__img"

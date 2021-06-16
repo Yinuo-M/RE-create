@@ -4,7 +4,6 @@ import FavButton from "./FavButton";
 function ArtInfo(props) {
 	const art = props.art;
 	const title = art.title.replace(/<\/?i>/g, "");
-	console.log(title);
 	const mediumList = art.medium.split("; ");
 	let desc;
 	if (art.country && art.objectDate) {
