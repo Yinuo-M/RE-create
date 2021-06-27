@@ -1,0 +1,42 @@
+@use "./common.scss";
+
+.standard-button {
+	background: none;
+	text-decoration: none;
+	color: var(--red);
+	border: var(--red) 1px solid;
+	font: var(--button);
+	letter-spacing: 0.03rem;
+	padding: 0.4rem 1rem;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+  transition: color 0.4s ease-out, border 0.4s ease-out;
+
+	&:hover {
+		color: var(--white);
+    border: #b18181 solid 1px;
+	}
+
+	&::before {
+		background: #b18181;
+		content: "";
+		height: 200px;
+		left: 0;
+		opacity: 0.9;
+		position: absolute;
+		top: -50px;
+		transform: rotate(45deg) scale(10) translateX(-80%);
+		transition: transform 0.7s ease-out;
+		width: 50px;
+	}
+
+	&:hover::before {
+		transform: rotate(45deg) scale(10) translateX(30%);
+	}
+}
+
+.standard-button__text {
+	z-index: 1;
+  position: relative;
+}

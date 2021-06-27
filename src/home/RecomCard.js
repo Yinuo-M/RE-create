@@ -2,6 +2,9 @@ import Button from "../common/Button";
 import { useState, useEffect, useRef } from "react";
 import Loader from "../common/Loader";
 import FavButton from "../common/FavButton";
+import arrowLeft from "../assets/arrow-left.svg";
+import arrowRight from "../assets/arrow-right.svg";
+import bookmark from "../assets/bookmark-light.svg";
 import "./RecomCard.scss";
 
 export default function RecomCard(props) {
@@ -88,47 +91,49 @@ export default function RecomCard(props) {
 	}
 
 	return (
-		<div>
-			{
-				<div className="recommendation__card">
-					<Button
-						className="recommendation__arrow recommendation__arrow--prev"
-						handleClick={changeObject.bind(this, "prev")}
-					/>
-					<Button
-						className="recommendation__arrow recommendation__arrow-next"
-						handleClick={changeObject.bind(this, "next")}
-					/>
+		<div className="recommendation__card">
+			<Button
+				className="recommendation__arrow recommendation__arrow--prev"
+				handleClick={changeObject.bind(this, "prev")}
+				imgUrl={arrowLeft}
+				alt="previous"
+			/>
+			<Button
+				className="recommendation__arrow recommendation__arrow--next"
+				handleClick={changeObject.bind(this, "next")}
+				imgUrl={arrowRight}
+				alt="next"
+			/>
 
-					{!loading ? (
-						<div className="recommendation__info">
-							<img
-								className="recommendation__img"
-								src={objectInfo.object.primaryImageSmall}
-								alt={objectInfo.object.title}
+			<div className="recommendation__block">
+				{!loading ? (
+					<div className="recommendation__info">
+						<img
+							className="recommendation__img"
+							src={objectInfo.object.primaryImageSmall}
+							alt={objectInfo.object.title}
+						/>
+						<p className="recommendation__name">
+							{objectInfo.object.title.replace(/<\/?i>/g, "")}
+						</p>
+						{objectInfo.object.artistDisplayName && (
+							<Button
+								href={objectInfo.object.artistWikidata_URL}
+								className="recommendation__artist"
+								text={objectInfo.object.artistDisplayName}
 							/>
-							<div className="recommendation__name-wrapper">
-								<FavButton
-									className="recommendation__bookmark"
-									art={objectInfo.object}
-								/>
-								<p className="recommendation__name">
-									{objectInfo.object.title.replace(/<\/?i>/g, "")}
-								</p>
-							</div>
-							{objectInfo.object.artistDisplayName && (
-								<Button
-									href={objectInfo.object.artistWikidata_URL}
-									className="recommendation__artist"
-									text={objectInfo.object.artistDisplayName}
-								/>
-							)}
-						</div>
-					) : (
-						<Loader />
-					)}
-				</div>
-			}
+						)}
+						<FavButton
+							art={objectInfo.object}
+							className="recommendation__bookmark"
+							textAdd="add to my favourites"
+							textRemove="remove from my favourites"
+						/>
+					</div>
+				) : (
+					<Loader />
+				)}
+			</div>
 		</div>
 	);
 }

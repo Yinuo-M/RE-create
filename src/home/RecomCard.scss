@@ -1,4 +1,81 @@
+@use "../common/common.scss";
+
+.recommendation__card {
+    position: relative;
+    @include common.flex-center;
+    flex-direction: column;
+}
+
+.recommendation__block {
+    min-height: 30rem;
+}
+
+.recommendation__img {
+    max-height: 600px;
+    width: auto;
+}
+
 .recommendation__arrow {
-	height: 100px;
-	width: 100px;
+    height: 100px;
+    width: 100px;
+    border: none;
+    position: absolute;
+    top: 40%;
+    padding: 0;
+
+    &::before,
+    &::after {
+        content: none;
+    }
+
+    &:hover {
+        border: none;
+        transform: scale(1.1);
+    }
+}
+
+.recommendation__arrow--prev {
+    left: 0;
+}
+
+.recommendation__arrow--next {
+    right: 0;
+}
+
+.recommendation__info {
+    @include common.flex-center;
+    flex-direction: column;
+}
+
+.recommendation__name-wrapper {
+    @include common.flex-center;
+}
+
+.recommendation__name {
+    font: var(--h3);
+    color: var(--white);
+}
+
+.recommendation__bookmark {
+    border: var(--dark-pink) 1px solid;
+    color: var(--dark-pink);
+
+    &::after {
+        content: url("../assets/bookmark-light.svg");
+    }
+
+    &::before {
+        background: var(--dark-pink);
+    }
+
+    &:hover {
+        color: var(--black);
+        border: var(--dark-pink) solid 1px;
+    }
+
+    &.fav-button--true {
+        &::after {
+            content: url("../assets/bookmark-fill-light.svg");
+        }
+    }
 }

@@ -11,6 +11,7 @@ function Home() {
 
 	function handleClick() {
 		setCounter((prevCounter) => prevCounter + 1);
+		window.scrollTo(0, 0);
 	}
 
 	useEffect(() => {
@@ -62,7 +63,7 @@ function Home() {
 		<main className="home-main">
 			<Title />
 			{!art ? (
-				<Loader />
+				<Loader className="home-loader" />
 			) : (
 				<ContentContainer art={art} handleFetchClick={handleClick} />
 			)}

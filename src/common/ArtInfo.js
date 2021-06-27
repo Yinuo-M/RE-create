@@ -1,5 +1,6 @@
 import Button from "./Button";
 import FavButton from "./FavButton";
+import "./ArtInfo.scss";
 
 function ArtInfo(props) {
 	const art = props.art;
@@ -15,7 +16,13 @@ function ArtInfo(props) {
 	return (
 		<article className={`art-info art-info--${props.className}`}>
 			<div className="art-info__image-wrapper">
-				<img className="art-info__image" src={art.primaryImage} alt={title} />
+				<img
+					className="art-info__image"
+					src={art.primaryImage}
+					alt={title}
+					width="670"
+					height="700"
+				/>
 				<FavButton
 					art={art}
 					className="art-info__bookmark"
@@ -24,7 +31,7 @@ function ArtInfo(props) {
 				/>
 			</div>
 			<div className="art-info__text-wrapper">
-				<div className="art-info__block">
+				<div className="art-info__block art-info__block--header">
 					<h2 className="art-info__name">{title}</h2>
 					<p className="art-info__text">{desc}</p>
 				</div>

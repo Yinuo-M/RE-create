@@ -1,0 +1,39 @@
+@use "../common/common.scss";
+
+.title {
+	min-height: calc(100vh - 10rem);
+	@include common.flex-center;
+	max-width: 1366px;
+	margin: auto;
+}
+
+.title__main {
+	text-align: center;
+	margin: 0;
+	padding-bottom: 7rem;
+}
+
+.title__1 {
+	display: block;
+	color: var(--dark-gray);
+	font: var(--title);
+	letter-spacing: 0.9rem;
+	position: relative;
+	right: 12rem;
+}
+
+.title__2 {
+	color: var(--dark-gray);
+	font: var(--title);
+	font-size: 5rem;
+	letter-spacing: 0.5rem;
+	position: relative;
+	left: 7rem;
+}
+
+.title__3 {
+	color: var(--red);
+	font: var(--title);
+	position: relative;
+	left: 7rem;
+}

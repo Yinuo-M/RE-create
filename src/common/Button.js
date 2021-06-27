@@ -1,3 +1,5 @@
+import "./Button.scss";
+
 function Button(props) {
 	if (props.href) {
 		return (
@@ -7,14 +9,24 @@ function Button(props) {
 				className={`standard-button ${props.className}`}
 				href={props.href}
 			>
-				{props.text}
+				<span className="standard-button__text">{props.text}</span>
 			</a>
 		);
 	}
 
 	return (
-		<button className={`standard-button ${props.className}`} onClick={props.handleClick}>
-			{props.text}
+		<button
+			className={`standard-button ${props.className}`}
+			onClick={props.handleClick}
+		>
+			<span className="standard-button__text">{props.text}</span>
+			{props.imgUrl && (
+				<img
+					className="standard-button__img"
+					src={props.imgUrl}
+					alt={props.alt}
+				/>
+			)}
 		</button>
 	);
 }

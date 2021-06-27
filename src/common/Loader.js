@@ -1,10 +1,10 @@
 import "./Loader.scss";
-import RingLoader from "react-spinners/RingLoader";
+import PulseLoader from "react-spinners/PuffLoader";
 
-function Loader() {
+function Loader(props) {
 	return (
-		<div className="loader">
-			<RingLoader color="#9c5d5d" size={160} />
+		<div className={`loader ${props.className}`}>
+			<PulseLoader color="#9c5d5d" size={70}/>
 		</div>
 	);
 }

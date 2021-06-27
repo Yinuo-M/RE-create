@@ -1,0 +1,23 @@
+.fav-button {
+	margin-top: 1.7rem;
+
+	&::after {
+		content: url("../assets/bookmark.svg");
+		position: absolute;
+		left: 1.2rem;
+		top: 0.5rem;
+	}
+
+	& .standard-button__text {
+		padding-left: 2.5rem;
+	}
+}
+
+.fav-button--true {
+	&::after {
+		content: url("../assets/bookmark-fill.svg");
+		position: absolute;
+		left: 1.4rem;
+		top: 0.5rem;
+	}
+}

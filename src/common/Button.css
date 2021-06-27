@@ -1,0 +1,48 @@
+@use "./common.scss";
+.standard-button {
+  background: none;
+  text-decoration: none;
+  color: var(--red);
+  border: var(--red) 1px solid;
+  font: var(--button);
+  letter-spacing: 0.03rem;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: color 0.4s ease-out, border 0.4s ease-out;
+  transition: color 0.4s ease-out, border 0.4s ease-out;
+}
+
+.standard-button:hover {
+  color: var(--white);
+  border: #b18181 solid 1px;
+}
+
+.standard-button::before {
+  background: #b18181;
+  content: "";
+  height: 200px;
+  left: 0;
+  opacity: 0.9;
+  position: absolute;
+  top: -50px;
+  -webkit-transform: rotate(45deg) scale(10) translateX(-80%);
+          transform: rotate(45deg) scale(10) translateX(-80%);
+  -webkit-transition: -webkit-transform 0.7s ease-out;
+  transition: -webkit-transform 0.7s ease-out;
+  transition: transform 0.7s ease-out;
+  transition: transform 0.7s ease-out, -webkit-transform 0.7s ease-out;
+  width: 50px;
+}
+
+.standard-button:hover::before {
+  -webkit-transform: rotate(45deg) scale(10) translateX(30%);
+          transform: rotate(45deg) scale(10) translateX(30%);
+}
+
+.standard-button__text {
+  z-index: 1;
+  position: relative;
+}
+/*# sourceMappingURL=Button.css.map */

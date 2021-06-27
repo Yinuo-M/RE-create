@@ -1,0 +1,92 @@
+@use "./common.scss";
+
+.nav {
+	width: 100%;
+	max-width: 1366px;
+	@include common.flex-center;
+	padding: 1.5rem 0;
+	position: relative;
+  margin: auto;
+}
+
+.nav__logo {
+	font: var(--logo);
+	color: var(--dark-gray);
+	margin: 0;
+}
+
+.nav__logo-link {
+	@include common.link-reset;
+}
+
+.nav__logo--colored {
+	color: var(--red);
+}
+
+.nav__menu {
+	position: absolute;
+	right: 0;
+	list-style: none;
+}
+
+.nav__list-item {
+	display: inline-block;
+	margin-left: 3.4rem;
+}
+
+.nav__link {
+	font: var(--nav);
+	text-decoration: none;
+	color: var(--dark-gray);
+	padding-bottom: 0.3rem;
+	border-bottom: 0px solid transparent;
+	transition: color 0.3s;
+	position: relative;
+
+	&::after {
+		content: "";
+		display: block;
+		border-bottom: 1px solid var(--red);
+		width: 0;
+		position: relative;
+		top: 0.3rem;
+		transition: width 0.3s;
+	}
+
+	&::before {
+		content: "";
+		display: block;
+		border-top: 1px solid var(--red);
+		width: 0;
+		position: absolute;
+		top: -0.2rem;
+		right: 0;
+		bottom: 0.3rem;
+		transition: width 0.3s;
+	}
+
+	&:hover,
+	&--active {
+		color: var(--red);
+
+		&::after {
+			width: 30%;
+		}
+
+		&::before {
+			width: 30%;
+		}
+	}
+
+	&:active {
+		&::after {
+			width: 60%;
+			transition: width 0.1s;
+		}
+
+		&::before {
+			width: 60%;
+			transition: width 0.1s;
+		}
+	}
+}

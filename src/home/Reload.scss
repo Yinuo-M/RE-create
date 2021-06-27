@@ -1,0 +1,32 @@
+@use "../common/common.scss";
+
+.reload {
+	@include common.flex-center;
+	flex-direction: column;
+	padding: 18rem 0;
+}
+
+.reload__title {
+  font: var(--reload);
+}
+
+.reload__title1 {
+  display: block;
+	color: var(--dark-gray);
+  position: relative;
+  right: 15%;
+}
+
+.reload__title2 {
+  display: block;
+  color: var(--red);
+  font-style: italic;
+  position: relative;
+  left: 70%;
+}
+
+.reload__button {
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  padding: 0.6rem 1.2rem;
+}

@@ -1,0 +1,20 @@
+:root {
+  --white: #f5f2ed;
+  --black: #1d1d1d;
+  --dark-gray: #707070;
+  --light-gray: #aba8a3;
+  --dark-pink: #efa3a3;
+  --light-pink: #ffc7c7;
+  --red: #9c5d5d;
+  --font: "Cormorant Garamond", serif;
+  --p: 1.5rem var(--font);
+  --logo: 500 2.44rem var(--font);
+  --nav: 500 1.4rem var(--font);
+  --title: 300 9.38rem/1 var(--font);
+  --h2: 500 3.5rem var(--font);
+  --h3: 500 2.44rem var(--font);
+  --button: 600 1.6rem var(--font);
+  --footer: 1rem var(--font);
+  --reload: 500 3.75rem var(--font);
+}
+/*# sourceMappingURL=common.css.map */

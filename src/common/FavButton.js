@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "./Button";
+import "./FavButton.scss";
 
 export default function FavButton(props) {
 	const id = props.art.objectID;
@@ -27,7 +28,7 @@ export default function FavButton(props) {
 			id,
 			image: props.art.primaryImageSmall,
 			date: Date.now(),
-			alt : title,
+			alt: title,
 		};
 		localStorage.setItem(id, JSON.stringify(info));
 		text = props.textRemove;
@@ -36,7 +37,7 @@ export default function FavButton(props) {
 
 	return (
 		<Button
-			className={`${props.className} ${props.className}--${added}`}
+			className={`fav-button ${props.className} fav-button--${added}`}
 			added={added}
 			text={text}
 			handleClick={handleClick}
