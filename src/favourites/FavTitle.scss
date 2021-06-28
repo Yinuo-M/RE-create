@@ -1,0 +1,14 @@
+@use "../common/common.scss";
+
+.fav-title {
+  @include common.flex-center;
+  margin-top: 7rem;
+}
+
+.fav-title__text {
+  padding: 0 5rem;
+  text-align: center;
+  font: var(--fav-title);
+  color: var(--red);
+  border-bottom: 1px solid var(--light-gray);
+}

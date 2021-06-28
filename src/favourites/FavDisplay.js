@@ -1,4 +1,5 @@
 import FavItem from "./FavItem";
+import "./FavDisplay.scss";
 
 export default function FavDisplay(props) {
   let favList = props.favList;
