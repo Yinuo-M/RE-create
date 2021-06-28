@@ -7,12 +7,13 @@
 .recommendation__wrapper {
     max-width: 1366px;
     margin: auto;
-    padding: 3rem 0;
+    padding: 3rem 0 8rem 0;
 }
 
 .recommendation__title {
     font: var(--h2);
     color: var(--white);
+    margin-bottom: 7rem;
 }
 
 .recommendation__culture {

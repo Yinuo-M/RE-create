@@ -1,9 +1,9 @@
 @use "../common/common.scss";
 
 .reload {
-	@include common.flex-center;
-	flex-direction: column;
-	padding: 18rem 0;
+  @include common.flex-center;
+  flex-direction: column;
+  padding: 13rem 0 18rem 0;
 }
 
 .reload__title {
@@ -12,7 +12,7 @@
 
 .reload__title1 {
   display: block;
-	color: var(--dark-gray);
+  color: var(--dark-gray);
   position: relative;
   right: 15%;
 }
@@ -20,7 +20,7 @@
 .reload__title2 {
   display: block;
   color: var(--red);
-  font-style: italic;
+  font-style: italic; 
   position: relative;
   left: 70%;
 }

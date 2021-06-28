@@ -1,6 +1,16 @@
+@use "../common/common.scss";
+
 .home-main {
   margin: auto;
   position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.home-loader {
+  @include common.flex-center;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -41,6 +41,7 @@ export default function FavButton(props) {
 			added={added}
 			text={text}
 			handleClick={handleClick}
+			imgUrl={props.imgUrl}
 		/>
 	);
 }
