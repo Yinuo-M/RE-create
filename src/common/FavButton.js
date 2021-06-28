@@ -3,45 +3,54 @@ import Button from "./Button";
 import "./FavButton.scss";
 
 export default function FavButton(props) {
-	const id = props.art.objectID;
+  const id = props.art.objectID;
 
-	const [added, setAdded] = useState(localStorage.getItem(id) ? true : false);
+  const [added, setAdded] = useState(localStorage.getItem(id) ? true : false);
 
-	let text;
-	if (added) {
-		text = props.textRemove;
-	} else {
-		text = props.textAdd;
-	}
+  let text;
+  if (added) {
+    text = props.textRemove;
+  } else {
+    text = props.textAdd;
+  }
 
-	function handleClick() {
-		if (added) {
-			localStorage.removeItem(id);
-			text = props.textAdd;
-			setAdded(false);
-			return;
-		}
+  let img;
+  if (added) {
+    img = props.imgFill;
+  } else {
+    img = props.imgEmpty;
+  }
 
-		const title = props.art.title.replace(/<\/?i>/g, "");
+  function handleClick() {
+    if (added) {
+      localStorage.removeItem(id);
+      text = props.textAdd;
+      img = props.imgFill;
+      setAdded(false);
+      return;
+    }
 
-		const info = {
-			id,
-			image: props.art.primaryImageSmall,
-			date: Date.now(),
-			alt: title,
-		};
-		localStorage.setItem(id, JSON.stringify(info));
-		text = props.textRemove;
-		setAdded(true);
-	}
+    const title = props.art.title.replace(/<\/?i>/g, "");
 
-	return (
-		<Button
-			className={`fav-button ${props.className} fav-button--${added}`}
-			added={added}
-			text={text}
-			handleClick={handleClick}
-			imgUrl={props.imgUrl}
-		/>
-	);
+    const info = {
+      id,
+      image: props.art.primaryImageSmall,
+      date: Date.now(),
+      alt: title,
+    };
+    localStorage.setItem(id, JSON.stringify(info));
+    text = props.textRemove;
+    img = props.imgEmpty;
+    setAdded(true);
+  }
+
+  return (
+    <Button
+      className={`fav-button ${props.className} fav-button--${added}`}
+      added={added}
+      text={text}
+      handleClick={handleClick}
+      imgUrl={img}
+    />
+  );
 }

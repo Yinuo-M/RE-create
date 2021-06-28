@@ -4,6 +4,8 @@ import Loader from "../common/Loader";
 import FavButton from "../common/FavButton";
 import arrowLeft from "../assets/arrow-left.svg";
 import arrowRight from "../assets/arrow-right.svg";
+import bookmark from "../assets/bookmark-light.svg";
+import bookmarkFill from "../assets/bookmark-fill-light.svg";
 import "./RecomCard.scss";
 
 export default function RecomCard(props) {
@@ -107,32 +109,39 @@ export default function RecomCard(props) {
       <div className="recommendation__block">
         {!loading ? (
           <div className="recommendation__info">
-            <div class="recommendation__img-wrapper">
+            <div className="recommendation__img-wrapper">
               <img
                 className="recommendation__img"
                 src={objectInfo.object.primaryImageSmall}
                 alt={objectInfo.object.title}
               />
             </div>
-            {/* <FavButton
-              art={objectInfo.object}
-              className="recommendation__bookmark"
-              textAdd="add to my favourites"
-              textRemove="remove from my favourites"
-            /> */}
-            <p className="recommendation__name">
-              {objectInfo.object.title.replace(/<\/?i>/g, "")}
-            </p>
-            {objectInfo.object.artistDisplayName && (
-              <Button
-                href={objectInfo.object.artistWikidata_URL}
-                className="recommendation__artist"
-                text={objectInfo.object.artistDisplayName}
+            <div className="recommendation__name-wrapper">
+              <FavButton
+                art={objectInfo.object}
+                className="recommendation__bookmark"
+                imgEmpty={bookmark}
+                imgFill={bookmarkFill}
               />
-            )}
+              <p className="recommendation__name">
+                {objectInfo.object.title.replace(/<\/?i>/g, "")}
+              </p>
+            </div>
+            {objectInfo.object.artistDisplayName &&
+              (objectInfo.object.artistWikidata_URL ? (
+                <Button
+                  href={objectInfo.object.artistWikidata_URL}
+                  className="recommendation__artist"
+                  text={objectInfo.object.artistDisplayName}
+                />
+              ) : (
+                <p className="recommendation__artist recommendation__artist--no-link">
+                  {objectInfo.object.artistDisplayName}
+                </p>
+              ))}
           </div>
         ) : (
-            <Loader className="recom-loader" />
+          <Loader className="recom-loader" />
         )}
       </div>
     </div>

@@ -1,92 +1,116 @@
 @use "./common.scss";
 
 .nav {
-	width: 100%;
-	max-width: 1366px;
-	@include common.flex-center;
-	padding: 1.5rem 0;
-	position: relative;
+  width: 100%;
+  max-width: 1366px;
+  @include common.flex-center;
+  padding: 1.5rem 0;
+  position: relative;
   margin: auto;
 }
 
 .nav__logo {
-	font: var(--logo);
-	color: var(--dark-gray);
-	margin: 0;
+  font: var(--logo);
+  color: var(--dark-gray);
+  margin: 0;
+
+  .background-image & {
+    color: var(--white);
+  }
 }
 
 .nav__logo-link {
-	@include common.link-reset;
+  @include common.link-reset;
 }
 
 .nav__logo--colored {
-	color: var(--red);
+  color: var(--red);
+
+  .background-image & {
+    color: var(--light-pink);
+  }
 }
 
 .nav__menu {
-	position: absolute;
-	right: 0;
-	list-style: none;
+  position: absolute;
+  right: 0;
+  list-style: none;
 }
 
 .nav__list-item {
-	display: inline-block;
-	margin-left: 3.4rem;
+  display: inline-block;
+  margin-left: 3.4rem;
 }
 
 .nav__link {
-	font: var(--nav);
-	text-decoration: none;
-	color: var(--dark-gray);
-	padding-bottom: 0.3rem;
-	border-bottom: 0px solid transparent;
-	transition: color 0.3s;
-	position: relative;
+  font: var(--nav);
+  text-decoration: none;
+  color: var(--dark-gray);
+  padding-bottom: 0.3rem;
+  border-bottom: 0px solid transparent;
+  transition: color 0.3s;
+  position: relative;
 
-	&::after {
-		content: "";
-		display: block;
-		border-bottom: 1px solid var(--red);
-		width: 0;
-		position: relative;
-		top: 0.3rem;
-		transition: width 0.3s;
-	}
+  .background-image & {
+    color: var(--white);
+  }
 
-	&::before {
-		content: "";
-		display: block;
-		border-top: 1px solid var(--red);
-		width: 0;
-		position: absolute;
-		top: -0.2rem;
-		right: 0;
-		bottom: 0.3rem;
-		transition: width 0.3s;
-	}
+  &::after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid var(--red);
+    width: 0;
+    position: relative;
+    top: 0.3rem;
+    transition: width 0.3s;
 
-	&:hover,
-	&--active {
-		color: var(--red);
+    .background-image & {
+      border-bottom: 1px solid var(--light-pink);
+    }
+  }
 
-		&::after {
-			width: 30%;
-		}
+  &::before {
+    content: "";
+    display: block;
+    border-top: 1px solid var(--red);
+    width: 0;
+    position: absolute;
+    top: -0.2rem;
+    right: 0;
+    bottom: 0.3rem;
+    transition: width 0.3s;
 
-		&::before {
-			width: 30%;
-		}
-	}
+    .background-image & {
+      border-top: 1px solid var(--light-pink);
+    }
+  }
 
-	&:active {
-		&::after {
-			width: 60%;
-			transition: width 0.1s;
-		}
+  &:hover,
+  &--active {
+    color: var(--red);
 
-		&::before {
-			width: 60%;
-			transition: width 0.1s;
-		}
-	}
+    .background-image & {
+      color: var(--light-pink);
+    }
+
+    &::after {
+      width: 30%;
+    }
+
+    &::before {
+      width: 30%;
+    }
+  }
+
+  &:active {
+    &::after {
+      width: 60%;
+      transition: width 0.1s;
+    }
+
+    &::before {
+      width: 60%;
+      transition: width 0.1s;
+    }
+  }
 }

@@ -5,7 +5,7 @@ import ContentContainer from "./ContentContainer";
 import Title from "./Title";
 import generateLetter from "../common/Utilitis";
 
-function Home() {
+function Home(props) {
   const [art, setArt] = useState(null);
   const [counter, setCounter] = useState(0);
 
@@ -15,6 +15,7 @@ function Home() {
   }
 
   useEffect(() => {
+    props.removeBgImg();
     setArt(null);
     let cancel = false;
     const controller1 = new AbortController();
@@ -48,9 +49,6 @@ function Home() {
       }
 
       if (!cancel) setArt(artResult);
-
-      const artInfo = document.querySelector(".art-info");
-      artInfo.scrollIntoView({ behavior: "smooth" });
     }
 
     fetchArt();
@@ -60,7 +58,7 @@ function Home() {
       controller1.abort();
       controller2.abort();
     };
-  }, [counter]);
+  }, [counter, props]);
 
   return (
     <main className="home-main">

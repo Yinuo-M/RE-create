@@ -3,42 +3,71 @@ import FavDisplay from "./FavDisplay";
 import Filter from "./Filter";
 import Modal from "./Modal.js";
 import EmptyFav from "./EmptyFav";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function Favourites() {
-	const [filterCriteria, setFilterCriteria] = useState("latest");
-	const [modalIsOpen, setModalIsOpen] = useState(false);
-	const [artID, setArtID] = useState(null);
+export default function Favourites(props) {
+  const [filterCriteria, setFilterCriteria] = useState("latest");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [artID, setArtID] = useState(null);
 
-	function handleChange(event) {
-		setFilterCriteria(event.target.value);
-	}
+  let favs = [];
+  for (let key in localStorage) {
+    if (key === "length") continue;
+    if (!localStorage.hasOwnProperty(key)) continue;
+    const favItem = JSON.parse(localStorage.getItem(key));
 
-	function handleDisplayClick(id) {
-		setModalIsOpen(true);
-		setArtID(id);
-	}
+    favs.push(favItem);
+  }
+  const [favList, setFavList] = useState(favs);
 
-	function handleExitClick() {
-		setModalIsOpen(false);
-		setArtID(null);
-	}
+  function handleChange(event) {
+    setFilterCriteria(event.target.value);
+  }
 
-	return (
-		<main className="fav-main">
-			{localStorage.length > 0 ? (
-				<div>
-					{modalIsOpen && <Modal id={artID} handleClick={handleExitClick} />}
-					<FavTitle />
-					<Filter handleChange={handleChange} filterCriteria={filterCriteria} />
-					<FavDisplay
-						filterCriteria={filterCriteria}
-						handleClick={handleDisplayClick}
-					/>
-				</div>
-			) : (
-				<EmptyFav />
-			)}
-		</main>
-	);
+  function handleDisplayClick(id) {
+    setModalIsOpen(true);
+    setArtID(id);
+  }
+
+  function handleExitClick() {
+    setModalIsOpen(false);
+    setArtID(null);
+
+    let favs = [];
+    for (let key in localStorage) {
+      if (key === "length") continue;
+      if (!localStorage.hasOwnProperty(key)) continue;
+      const favItem = JSON.parse(localStorage.getItem(key));
+
+      favs.push(favItem);
+    }
+    setFavList(favs);
+  }
+
+  useEffect(() => {
+    if (favList.length > 0) {
+      props.removeBgImg();
+    } else {
+      props.addBgImg();
+    }
+  }, [favList, props]);
+
+  return (
+    <main className="fav-main">
+      {localStorage.length > 0 ? (
+        <div>
+          {modalIsOpen && <Modal id={artID} handleClick={handleExitClick} />}
+          <FavTitle />
+          <Filter handleChange={handleChange} filterCriteria={filterCriteria} />
+          <FavDisplay
+            filterCriteria={filterCriteria}
+            handleClick={handleDisplayClick}
+            favList={favList}
+          />
+        </div>
+      ) : (
+        <EmptyFav />
+      )}
+    </main>
+  );
 }

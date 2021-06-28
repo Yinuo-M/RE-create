@@ -1,0 +1,9 @@
+.body-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.background-image {
+  background: url("./assets/gallery-background.jpg") no-repeat center;
+}

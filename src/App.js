@@ -3,25 +3,37 @@ import Nav from "./common/Nav";
 import Footer from "./common/Footer";
 import Home from "./home/Home";
 import Favourites from "./favourites/Favourites";
+import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
-	return (
-		<Router>
-			<div>
-				<Nav />
-				<Switch>
-					<Route path="/my-favourites">
-						<Favourites />
-					</Route>
-					<Route path="/">
-						<Home />
-					</Route>
-				</Switch>
-				<Footer />
-			</div>
-		</Router>
-	);
+  const [hasBgImg, setHasBgImg] = useState(false);
+
+  function addBgImg() {
+    setHasBgImg(true);
+  }
+
+  function removeBgImg() {
+    setHasBgImg(false);
+  }
+
+  return (
+    <Router>
+      <div className={`body-wrapper ${hasBgImg ? "background-image" : ""}`}>
+        <Nav />
+        <Switch>
+          <Route path="/my-favourites">
+            <Favourites addBgImg={addBgImg} removeBgImg={removeBgImg} />
+          </Route>
+          <Route path="/">
+            <Home removeBgImg={removeBgImg} />
+          </Route>
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
 export default App;

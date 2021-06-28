@@ -13,8 +13,8 @@
 }
 
 .recommendation__img-wrapper {
-	height: 550px;
-	@include common.flex-center;
+  height: 550px;
+  @include common.flex-center;
 }
 
 .recommendation__img {
@@ -29,6 +29,8 @@
   position: absolute;
   top: 30%;
   padding: 0;
+  transition: transform 0.2s;
+  z-index: 1;
 
   &::before,
   &::after {
@@ -37,16 +39,17 @@
 
   &:hover {
     border: none;
-    transform: scale(1.1);
+    transform: scale(1.2);
+    transition: transform 0.2s;
   }
 }
 
 .recommendation__arrow--prev {
-  left:15%;
+  left: 10%;
 }
 
 .recommendation__arrow--next {
-  right: 15%;
+  right: 10%;
 }
 
 .recommendation__info {
@@ -56,38 +59,37 @@
 
 .recommendation__name-wrapper {
   @include common.flex-center;
+  align-items: flex-start;
 }
 
 .recommendation__name {
   font: var(--h3);
   color: var(--white);
-	margin: 0.5rem 0 0 0;
-	max-width: 50rem;
-	text-align: center;
+  margin: 0.5rem 0 0 0;
+  max-width: 50rem;
+  text-align: center;
 }
 
 .recommendation__bookmark {
-  border: var(--dark-pink) 1px solid;
-  color: var(--dark-pink);
-	margin-top: 0;
+  border: none;
+  margin: 0;
+  padding: 1.2rem 0.7rem 0 0.7rem;
+  transition: transform 0.2s;
 
-  &::after {
-    content: url("../assets/bookmark-light.svg");
-  }
-
+  &::after,
   &::before {
-    background: var(--dark-pink);
+    content: "";
+    display: none;
   }
 
   &:hover {
-    color: var(--black);
-    border: var(--dark-pink) solid 1px;
+    border: none;
+    transform: scale(1.1);
+    transition: transform 0.2s;
   }
 
-  &.fav-button--true {
-    &::after {
-      content: url("../assets/bookmark-fill-light.svg");
-    }
+  .standard-button__text {
+    display: none;
   }
 }
 
@@ -96,18 +98,25 @@
   cursor: pointer;
   border: none;
   font: var(--artist);
-	font-style: italic;
+  font-style: italic;
   text-decoration: underline;
-	transition: color 0.1s;
+  transition: color 0.1s;
+  margin: 0;
 
   &:hover {
     border: none;
     background: none;
+    transition: color 0.1s;
   }
 
   &::before,
   &::after {
     display: none;
+  }
+
+  &--no-link {
+    text-decoration: none;
+    cursor: auto;
   }
 }
 
@@ -116,5 +125,5 @@
   position: absolute;
   top: 14.5rem;
   left: 50%;
-  transform: translateX( -50%);
+  transform: translateX(-50%);
 }
