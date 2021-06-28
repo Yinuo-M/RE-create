@@ -1,3 +1,74 @@
-.message {
+@use "../common/common.scss";
 
+.message {
+  text-align: center;
+  padding-top: 50vh;
+  padding-bottom: 4rem;
+}
+
+.message__text {
+  font: var(--fav-empty);
+  color: var(--white);
+  margin: 2rem auto;
+}
+
+.message__empty {
+  display: block;
+  position: relative;
+  right: 10rem;
+}
+
+.message__suggestion {
+  position: relative;
+  left: 7rem;
+}
+
+.message__explore {
+  color: var(--light-pink);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.message__button-wrapper {
+  display: inline-block;
+  background: none;
+  text-decoration: none;
+  color: var(--light-pink);
+  border: var(--light-pink) 1px solid;
+  font: var(--button);
+  letter-spacing: 0.03rem;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.2s ease-out, border 0.2s ease-out;
+
+  &:hover {
+    color: var(--black);
+    border: var(--light-pink) solid 1px;
+    transition: color 0.5s ease-out, border 0.5s ease-out;
+  }
+
+  &::before {
+    background: var(--light-pink);
+    content: "";
+    height: 200px;
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: -50px;
+    transform: rotate(45deg) scale(10) translateX(-80%);
+    width: 50px;
+    transition: transform 0.5s ease-out;
+  }
+
+  &:hover::before {
+    transform: rotate(45deg) scale(10) translateX(30%);
+    transition: transform 0.8s ease-out;
+  }
+}
+
+.message__button-text {
+  z-index: 1;
+  position: relative;
 }

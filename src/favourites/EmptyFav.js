@@ -3,14 +3,16 @@ import "./EmptyFav.scss";
 
 export default function EmptyFav(props) {
   return (
-    <div className="background-wrapper">
-      <p className="message">
+    <div className="message">
+      <p className="message__text">
         <span className="message__empty">It's empty here...</span>
         <span className="message__suggestion">
           why not <span className="message__explore">EXPLORE</span> more?
         </span>
       </p>
-      <Link to="/">view art of the day</Link>
+      <Link className="message__button-wrapper" to="/">
+        <span className="message__button-text">view art of the day</span>
+      </Link>
     </div>
   );
 }

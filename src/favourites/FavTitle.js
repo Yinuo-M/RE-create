@@ -1,3 +1,3 @@
 export default function FavTitle() {
-	return <h1>FAVOURITES</h1>;
+  return <h1>FAVOURITES</h1>;
 }
