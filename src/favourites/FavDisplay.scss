@@ -1,0 +1,16 @@
+.fav-list {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  column-gap: 5%;
+  place-items: start center;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 8rem;
+  margin-bottom: 5rem;
+}
+
+.fav-list__sub-list {
+  list-style: none;
+  padding: 0;
+}

@@ -1,0 +1,33 @@
+.fav-list__item {
+  margin-bottom: 6.8rem;
+  width: 400px;
+  box-shadow: 0 10px 10px -5px rgb(211, 208, 208);
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.fav-list__item .standard-button__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fav-list__item .standard-button {
+  border: none;
+  background: none;
+  transition: none;
+  padding: 0;
+  display: block;
+
+  &::before,
+  &::after {
+    display: none;
+    content: "";
+  }
+}
+
+.fav-list__item .standard-button__text {
+  display: none;
+}

@@ -11,10 +11,10 @@ function Home(props) {
 
   function handleClick() {
     setCounter((prevCounter) => prevCounter + 1);
-    window.scrollTo(0, 0);
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     props.removeBgImg();
     setArt(null);
     let cancel = false;

@@ -1,4 +1,5 @@
 import Button from "../common/Button";
+import "./FavItem.scss"
 
 export default function FavItem(props) {
 	const image = (
@@ -13,7 +14,8 @@ export default function FavItem(props) {
 		<li className="fav-list__item">
 			<Button
 				className="fav-list__button"
-				text={image}
+				imgUrl={props.info.image}
+				alt={props.info.alt}
 				handleClick={props.handleClick.bind(this, props.info.id)}
 			/>
 		</li>
