@@ -53,7 +53,7 @@ export default function Favourites(props) {
   }, [favList, props]);
 
   return (
-    <main className="fav-main">
+    <main className={`fav-main ${modalIsOpen ? "fav-main--modal" : ""}`}>
       {localStorage.length > 0 ? (
         <div>
           {modalIsOpen && <Modal id={artID} handleClick={handleExitClick} />}

@@ -1,0 +1,47 @@
+@use "../common/common.scss";
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.exit {
+  border: none;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  transition: transform 0.1s;
+  padding: 0;
+
+  &::before,
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    border: none;
+    transform: scale(1.2);
+    transition: transform 0.1s;
+  }
+
+  .standard-button__img {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+.art-info--fav {
+  column-gap: 0;
+  padding: 3rem 0;
+  grid-template-columns: 1fr 1fr;
+
+  .art-info__image {
+    max-width: 90%;
+    max-height: 40rem;
+    width: auto;
+    height: auto;
+  }
+
+  .art-info__text-wrapper {
+    padding:  0 4.25rem 0 4.25rem;
+  }
+}

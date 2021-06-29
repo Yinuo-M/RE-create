@@ -23,8 +23,6 @@
 }
 
 .recommendation__arrow {
-  height: 100px;
-  width: 100px;
   border: none;
   position: absolute;
   top: 30%;
@@ -45,11 +43,11 @@
 }
 
 .recommendation__arrow--prev {
-  left: 10%;
+  left: 15%;
 }
 
 .recommendation__arrow--next {
-  right: 10%;
+  right: 15%;
 }
 
 .recommendation__info {
