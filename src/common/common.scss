@@ -23,6 +23,12 @@
   --filter: 1.8rem var(--font);
 }
 
+@media (max-width: 500px) {
+  :root {
+    --logo: 500 2rem var(--font);
+  }
+}
+
 @mixin flex-center {
   display: flex;
   align-items: center;

@@ -17,7 +17,8 @@
     display: none;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     border: none;
     transform: scale(1.2);
     transition: transform 0.1s;

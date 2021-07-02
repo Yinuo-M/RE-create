@@ -1,7 +1,7 @@
 import Button from "./Button";
 import FavButton from "./FavButton";
 import "./ArtInfo.scss";
-import { useEffect } from "react";
+
 function ArtInfo(props) {
   const art = props.art;
   const title = art.title.replace(/<\/?i>/g, "");

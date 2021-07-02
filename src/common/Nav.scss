@@ -1,7 +1,11 @@
 @use "./common.scss";
 
-.nav {
+.header {
   width: 100%;
+  padding: 0;
+}
+
+.nav {
   max-width: 1366px;
   @include common.flex-center;
   padding: 1.5rem 0;
@@ -40,6 +44,10 @@
 .nav__list-item {
   display: inline-block;
   margin-left: 3.4rem;
+}
+
+.nav__img {
+  display: none;
 }
 
 .nav__link {
@@ -86,6 +94,7 @@
   }
 
   &:hover,
+  &:focus-visible,
   &--active {
     color: var(--red);
 
@@ -112,5 +121,73 @@
       width: 60%;
       transition: width 0.1s;
     }
+  }
+}
+
+@media (max-width: 1366px) {
+  .header {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .nav__list-item {
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav__text {
+    display: none;
+  }
+
+  .nav__img {
+    display: inline;
+    transition: transform 0.2s;
+    height: 25px;
+    width: auto;
+  }
+
+  .nav__link {
+    padding: 0;
+
+    &:hover,
+    &:focus-visible {
+      .nav__img {
+        transform: scale(1.2);
+      }
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .nav__list-item {
+    margin-left: 1.5rem;
+  }
+
+  .nav {
+    justify-content: flex-start;
+  }
+
+  .nav__img {
+    height: 23px;
+  }
+}
+
+@media (max-width: 350px) {
+  .nav__list-item {
+    margin-left: 1rem;
+  }
+
+  .nav__img {
+    height: 20px;
   }
 }
