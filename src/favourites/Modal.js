@@ -41,23 +41,30 @@ export default function Modal(props) {
       style={{
         overlay: {
           backgroundColor: "rgba(0, 0, 0, 0.35)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         },
         content: {
-          position: "absolute",
-          top: "7vh",
-          left: "50%",
-          right: "auto",
-          bottom: "7vh",
+          background: "#f5f2ed",
+          position: "relative",
+          width: "1000px",
+          maxWidth: "95%",
+          height: "650px",
+          maxHeight: "80vh",
+          top: "0",
+          right: "0",
+          left: "0",
+          bottom: "0",
+          padding: "0",
           border: "none",
-          transform: "translateX(-50%)",
-          minWidth: "70%",
-          background: "#F5F2ED",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         },
       }}
     >
-      <article className="modal">
-        {art ? <ArtInfo className="fav" art={art} /> : <Loader />}
-      </article>
+      {art ? <ArtInfo className="fav" art={art} /> : <Loader className="fav-loader"/>}
       <Button
         className="exit"
         imgUrl={exitIcon}

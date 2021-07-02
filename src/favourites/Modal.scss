@@ -30,18 +30,53 @@
 }
 
 .art-info--fav {
+  display: flex;
+  padding: 0;
   column-gap: 0;
-  padding: 3rem 0;
-  grid-template-columns: 1fr 1fr;
+  box-sizing: border-box;
+  min-height: 100%;
+
+  .art-info__wrapper {
+    align-items: stretch;
+    flex-basis: 50%;
+  }
+
+  .art-info__image-wrapper {
+    border-right: 1px solid rgb(223, 219, 219);
+    padding: 3rem 0;
+  }
 
   .art-info__image {
-    max-width: 90%;
-    max-height: 40rem;
-    width: auto;
     height: auto;
+    max-width: 70%;
   }
 
   .art-info__text-wrapper {
-    padding:  0 4.25rem 0 4.25rem;
+    padding: 3rem 5rem;
   }
+
+  .art-info__name {
+    font-size: 2.44rem;
+  }
+
+  .art-info__text,
+  .standard-button__text {
+    font-size: 1.25rem;
+  }
+
+  .art-info__title {
+    font-size: 1.88rem;
+  }
+
+  .art-info__block--header {
+    margin-bottom: 2.5rem;
+  }
+
+  .art-info__block {
+    margin-bottom: 1rem;
+  }
+}
+
+.fav-loader {
+  @include common.flex-center;
 }

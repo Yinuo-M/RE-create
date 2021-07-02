@@ -1,4 +1,3 @@
-import "./Loader.scss";
 import PulseLoader from "react-spinners/PuffLoader";
 
 function Loader(props) {

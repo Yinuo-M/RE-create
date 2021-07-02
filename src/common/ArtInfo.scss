@@ -9,6 +9,11 @@
 	padding: 5rem 0;
 }
 
+.art-info__wrapper {
+	@include common.flex-center;
+	align-items: flex-start;
+}
+
 .art-info__image {
 	max-width: 670px;
 	height: auto;

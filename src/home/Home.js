@@ -11,6 +11,9 @@ function Home(props) {
 
   function handleClick() {
     setCounter((prevCounter) => prevCounter + 1);
+    const artInfo = document.querySelector(".art-info--home");
+    console.log(artInfo);
+    if (artInfo) artInfo.scrollIntoView();
   }
 
   useEffect(() => {
