@@ -8,7 +8,7 @@
   --red: #9c5d5d;
 
   --font: "Cormorant Garamond", serif;
-  --p: 1.5rem var(--font);
+  --p: 1.5rem/1.15 var(--font);
   --logo: 500 2.44rem var(--font);
   --nav: 500 1.4rem var(--font);
   --title: 300 9.38rem/1 var(--font);
@@ -21,27 +21,6 @@
   --fav-empty: 3rem var(--font);
   --fav-title: 300 5.7rem var(--font);
   --filter: 1.8rem var(--font);
-}
-
-@media (max-width: 1300px) {
-  :root {
-    --h2: 500 3rem var(--font);
-    --h3: 500 2rem var(--font);
-    --p: 1.3rem var(--font);
-    --button: 600 1.4rem var(--font);
-  }
-}
-
-@media (max-width: 1200px) {
-  :root {
-    --title: 300 8rem/0.8 var(--font);
-  }
-}
-
-@media (max-width: 500px) {
-  :root {
-    --logo: 500 2rem var(--font);
-  }
 }
 
 @mixin flex-center {

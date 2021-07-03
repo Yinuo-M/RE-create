@@ -40,34 +40,38 @@ function ArtInfo(props) {
             </h2>
             <p className="art-info__text">{desc}</p>
           </div>
-          {
+          <div className="art-info__detail-wrapper">
+            {
+              <div className="art-info__block">
+                <h3 className="art-info__title">
+                  {art.artistRole || "Artist"}
+                </h3>
+                <p className="art-info__text art-info__text--italic">
+                  {art.artistDisplayName || "unknown"}
+                </p>
+                <p className="art-info__text">{art.artistDisplayBio}</p>
+                {art.artistWikidata_URL && (
+                  <Button
+                    className="art-info__button"
+                    text="artist's wiki"
+                    href={art.artistWikidata_URL}
+                  />
+                )}
+              </div>
+            }
             <div className="art-info__block">
-              <h3 className="art-info__title">{art.artistRole || "Artist"}</h3>
-              <p className="art-info__text art-info__text--italic">
-                {art.artistDisplayName || "unknown"}
-              </p>
-              <p className="art-info__text">{art.artistDisplayBio}</p>
-              {art.artistWikidata_URL && (
-                <Button
-                  className="art-info__button"
-                  text="artist's wiki"
-                  href={art.artistWikidata_URL}
-                />
-              )}
+              <h3 className="art-info__title">Details</h3>
+              {mediumList.map((medium) => (
+                <p className="art-info__text" key={medium}>
+                  {medium}
+                </p>
+              ))}
+              <Button
+                text="more about this piece"
+                href={art.objectURL}
+                className="art-info__button"
+              />
             </div>
-          }
-          <div className="art-info__block">
-            <h3 className="art-info__title">Details</h3>
-            {mediumList.map((medium) => (
-              <p className="art-info__text" key={medium}>
-                {medium}
-              </p>
-            ))}
-            <Button
-              text="more about this piece"
-              href={art.objectURL}
-              className="art-info__button"
-            />
           </div>
         </div>
       </div>

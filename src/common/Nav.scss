@@ -168,6 +168,12 @@
   }
 }
 
+@media (max-width: 750px) {
+  .nav {
+    --logo: 500 2rem var(--font);
+  }
+}
+
 @media (max-width: 500px) {
   .nav__list-item {
     margin-left: 1.5rem;
