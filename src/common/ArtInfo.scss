@@ -6,11 +6,13 @@
   column-gap: 15%;
   max-width: 1366px;
   margin: auto;
+  position: relative;
   padding: 5rem 0;
 }
 
 .art-info__wrapper {
   @include common.flex-center;
+  padding: 5rem 0;
 }
 
 .art-info__image {
@@ -73,7 +75,35 @@
 }
 
 @media (max-width: 1460px) {
-	.art-info {
-		column-gap: 20px;
-	}
+  .art-info {
+    column-gap: 5rem;
+  }
+
+  .art-info__wrapper {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .art-info__image {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .art-info {
+    @include common.flex-center;
+    column-gap: 0;
+    flex-direction: column;
+  }
+
+  .art-info__block--header {
+    position: absolute;
+    top: 0;
+  }
+
+  .art-info__wrapper--text {
+    background: var(--black);
+    width: 100%;
+  }
 }

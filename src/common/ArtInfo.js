@@ -32,7 +32,7 @@ function ArtInfo(props) {
           />
         </div>
       </div>
-      <div className="art-info__wrapper">
+      <div className="art-info__wrapper art-info__wrapper--text">
         <div className="art-info__text-wrapper">
           <div className="art-info__block art-info__block--header">
             <h2 className="art-info__name" id="art-title">

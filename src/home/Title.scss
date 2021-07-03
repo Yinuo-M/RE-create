@@ -37,3 +37,26 @@
 	position: relative;
 	left: 7rem;
 }
+
+@media (max-width: 1200px) {
+	.title__1 {
+		right: 10rem;
+		letter-spacing: 0.5rem;
+	}
+
+	.title__2 {
+		font-size: 3.5rem;
+		left: 6rem;
+		letter-spacing: 0.3rem;
+	}
+
+	.title__3 {
+		left: 6rem;
+	}
+}
+
+@media (max-width: 750px) {
+	.title {
+		padding: 0 1rem;
+	}
+}

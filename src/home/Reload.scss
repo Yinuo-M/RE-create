@@ -1,6 +1,7 @@
 @use "../common/common.scss";
 
 .reload {
+  overflow: hidden;
   @include common.flex-center;
   flex-direction: column;
   padding: 13rem 0 18rem 0;
