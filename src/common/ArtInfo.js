@@ -28,7 +28,7 @@ function ArtInfo(props) {
             art={art}
             className="art-info__bookmark"
             textAdd="add to my favourites"
-            textRemove="remove from my favourites"
+            textRemove="remove  from my favourites"
           />
         </div>
       </div>

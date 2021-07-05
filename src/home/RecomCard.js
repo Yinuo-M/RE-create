@@ -4,9 +4,12 @@ import Loader from "../common/Loader";
 import FavButton from "../common/FavButton";
 import arrowLeft from "../assets/arrow-left.svg";
 import arrowRight from "../assets/arrow-right.svg";
+import arrowLeftSmall from "../assets/arrow-left--small.svg";
+import arrowRightSmall from "../assets/arrow-right--small.svg";
 import bookmark from "../assets/bookmark-light.svg";
 import bookmarkFill from "../assets/bookmark-fill-light.svg";
 import "./RecomCard.scss";
+import { useSwipeable } from "react-swipeable";
 
 export default function RecomCard(props) {
   const [objectInfo, setObjectInfo] = useState(null);
@@ -91,6 +94,11 @@ export default function RecomCard(props) {
     }
   }
 
+  const swipes = useSwipeable({
+    onSwipedLeft: changeObject.bind(this, "prev"),
+    onSwipedRight: changeObject.bind(this, "next"),
+  });
+
   return (
     <div className="recommendation__card">
       <Button
@@ -114,6 +122,18 @@ export default function RecomCard(props) {
                 className="recommendation__img"
                 src={objectInfo.object.primaryImageSmall}
                 alt={objectInfo.object.title}
+              />
+              <Button
+                className="recommendation__img-arrow recommendation__img-arrow--prev"
+                handleClick={changeObject.bind(this, "prev")}
+                imgUrl={arrowLeftSmall}
+                alt="previous"
+              />
+              <Button
+                className="recommendation__img-arrow recommendation__img-arrow--next"
+                handleClick={changeObject.bind(this, "next")}
+                imgUrl={arrowRightSmall}
+                alt="next"
               />
             </div>
             <div className="recommendation__name-wrapper">

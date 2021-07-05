@@ -11,9 +11,6 @@ function Home(props) {
 
   function handleClick() {
     setCounter((prevCounter) => prevCounter + 1);
-    const artInfo = document.querySelector(".art-info--home");
-    console.log(artInfo);
-    if (artInfo) artInfo.scrollIntoView();
   }
 
   useEffect(() => {
@@ -52,6 +49,11 @@ function Home(props) {
       }
 
       if (!cancel) setArt(artResult);
+
+      if (counter > 0) {
+        const artInfo = document.querySelector(".art-info--home");
+        artInfo.scrollIntoView({ behavior: "smooth" });
+      }
     }
 
     fetchArt();

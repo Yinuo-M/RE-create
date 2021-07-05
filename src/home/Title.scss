@@ -1,11 +1,11 @@
 @use "../common/common.scss";
 
 .title {
-  min-height: calc(100vh - 10rem);
+  min-height: calc(100vh - 14rem);
   @include common.flex-center;
   max-width: 1366px;
-  margin: auto;
-	overflow: hidden;
+  margin: 4rem auto 4rem auto;
+  overflow: hidden;
 }
 
 .title__main {
@@ -63,5 +63,69 @@
 @media (max-width: 750px) {
   .title {
     padding: 0 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .title {
+    --title: 300 6rem/0.8 var(--font);
+    min-height: calc(100vh - 30rem);
+  }
+
+  .title__1 {
+    letter-spacing: 0.3rem;
+    right: 7rem;
+  }
+
+  .title__2 {
+    font-size: 2.8rem;
+    left: 4.5rem;
+    letter-spacing: 0.15rem;
+  }
+
+  .title__3 {
+    left: 4.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .title {
+    --title: 400 5rem/0.85 var(--font);
+    min-height: calc(100vh - 40rem);
+  }
+
+  .title__1 {
+    letter-spacing: 0.2rem;
+    right: 6.5rem;
+  }
+
+  .title__2 {
+    font-size: 2.5rem;
+    left: 3.5rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .title__3 {
+    left: 3.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    --title: 400 4rem/0.85 var(--font);
+  }
+
+  .title__1 {
+    right: 5.5rem;
+  }
+
+  .title__2 {
+    font-size: 2.3rem;
+    left: 3rem;
+  }
+
+  .title__3 {
+    left: 3rem;
+
   }
 }

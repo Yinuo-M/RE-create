@@ -24,6 +24,7 @@
 .footer__link {
   color: inherit;
   transition: color 0.1s;
+  white-space: nowrap;
 
   &:visited {
     color: inherit;
@@ -32,5 +33,38 @@
   &:hover,
   &:focus-visible {
     color: var(--white);
+  }
+}
+
+@media (max-width: 1400px) {
+  .footer {
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer {
+    padding: 0 1rem;
+  }
+  .footer__wrapper {
+    align-items: center;
+  }
+
+  .footer__credit--museum {
+    @include common.flex-center;
+    flex-direction: column;
+    margin-bottom: 0.3rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer {
+    --footer: 0.9rem var(--font);
+  }
+
+  .footer__credit--museum {
+    @include common.flex-center;
+    flex-direction: column;
+    margin-bottom: 0.2rem;
   }
 }

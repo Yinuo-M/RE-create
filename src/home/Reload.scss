@@ -1,7 +1,6 @@
 @use "../common/common.scss";
 
 .reload {
-  overflow: hidden;
   @include common.flex-center;
   flex-direction: column;
   padding: 13rem 0 18rem 0;
@@ -19,9 +18,9 @@
 }
 
 .reload__title2 {
-  display: block;
+  display: inline-block;
   color: var(--red);
-  font-style: italic; 
+  font-style: italic;
   position: relative;
   left: 70%;
 }
@@ -30,4 +29,92 @@
   margin-top: 1.5rem;
   font-size: 2rem;
   padding: 0.6rem 1.2rem;
+}
+
+@media (max-width: 1050px) {
+  .reload {
+    --reload: 500 3.3rem var(--font);
+  }
+
+  .reload__title1 {
+    right: 20%;
+  }
+
+  .reload__title2 {
+    left: 60%;
+  }
+
+  .reload__button {
+    font-size: 1.8rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .reload {
+    --reload: 500 3rem var(--font);
+    padding: 10rem 0 13rem 0;
+  }
+
+  .reload__title1 {
+    right: 15%;
+  }
+
+  .reload__title2 {
+    left: 55%;
+  }
+
+  .reload__button {
+    font-size: 1.5rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .reload {
+    --reload: 500 2.5rem var(--font);
+    padding: 9rem 0 11rem 0;
+  }
+
+  .reload__title1 {
+    right: 13%;
+  }
+
+  .reload__title2 {
+    left: 23%;
+    font-size: 3.5rem;
+    letter-spacing: 0.1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .reload {
+    --reload: 500 2rem var(--font);
+  }
+
+  .reload__title1 {
+    right: 20%;
+  }
+
+  .reload__title2 {
+    left: 23%;
+    font-size: 3.2rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .reload__button {
+    font-size: 1.3rem;
+    padding: 0.3rem 0.8rem;
+    margin-top: 1.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .reload__title1 {
+    right: 10%;
+  }
+
+  .reload__title2 {
+    left: 10%;
+  }
 }
