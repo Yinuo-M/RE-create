@@ -15,7 +15,6 @@
 
 .nav__logo {
   font: var(--logo);
-  color: var(--dark-gray);
   margin: 0;
 
   .background-image & {
@@ -25,6 +24,7 @@
 
 .nav__logo-link {
   @include common.link-reset;
+  color: var(--dark-gray);
 }
 
 .nav__logo--colored {

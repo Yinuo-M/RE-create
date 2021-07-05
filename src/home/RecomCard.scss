@@ -231,10 +231,11 @@
       border: none;
       background: rgb(77, 75, 75);
       transition: opacity 0.2s, background-color 0.1s;
+      opacity: 0.8;
     }
 
     .recommendation__img-wrapper:hover & {
-      opacity: 1;
+      opacity: 0.8;
     }
 
     @media (hover: none) {
