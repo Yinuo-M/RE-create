@@ -1,0 +1,15 @@
+{
+	"short_name": "RE:create",
+	"name": "RE:create",
+	"icons": [
+		{
+			"src": "logo.svg",
+			"type": "image/svg",
+			"sizes": "192x192"
+		}
+	],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#9C5D5D",
+	"background_color": "#f5f2ed"
+}
