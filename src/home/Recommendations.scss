@@ -34,8 +34,28 @@
 
 @media (max-width: 600px) {
   .recommendation {
-    background: var(--black);
-    width: 100%;
     --h2: 500 3rem var(--font);
+  }
+
+  .recommendation__wrapper {
+    padding: 2rem 0 8rem 0;
+  }
+
+  .recommendation__title {
+    margin-bottom: 4rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .recommendation {
+    --h2: 500 2.7rem var(--font);
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .recommendation {
+    padding: 0 1rem;
   }
 }

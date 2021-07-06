@@ -9,7 +9,8 @@ function Nav(props) {
       <nav className={`nav ${props.light && "nav--light"}`}>
         <p className="nav__logo">
           <Link className="nav__logo-link" to="/">
-            RE:<span className="nav__logo--colored">create</span>
+            <span className="nav__logo-text--plain">RE:</span>
+            <span className="nav__logo-text--colored">create</span>
           </Link>
         </p>
         <ul className="nav__menu">

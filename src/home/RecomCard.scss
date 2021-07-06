@@ -207,7 +207,7 @@
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    opacity: 0.3;
+    opacity: 0.5;
     transition: opacity 0.2s, background-color 0.2s;
     cursor: pointer;
 
@@ -231,16 +231,16 @@
       border: none;
       background: rgb(77, 75, 75);
       transition: opacity 0.2s, background-color 0.1s;
-      opacity: 0.8;
+      opacity: 0.9;
     }
 
     .recommendation__img-wrapper:hover & {
-      opacity: 0.8;
+      opacity: 0.9;
     }
 
     @media (hover: none) {
       & {
-        opacity: 0.8;
+        opacity: 0.9;
       }
     }
   }

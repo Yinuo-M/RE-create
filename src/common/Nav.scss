@@ -16,18 +16,20 @@
 .nav__logo {
   font: var(--logo);
   margin: 0;
+}
 
+.nav__logo-link {
+  @include common.link-reset;
+}
+
+.nav__logo-text--plain {
+  color: var(--dark-gray);
   .background-image & {
     color: var(--white);
   }
 }
 
-.nav__logo-link {
-  @include common.link-reset;
-  color: var(--dark-gray);
-}
-
-.nav__logo--colored {
+.nav__logo-text--colored {
   color: var(--red);
 
   .background-image & {
