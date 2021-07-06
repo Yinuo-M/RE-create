@@ -190,6 +190,8 @@
 
   .recommendation__block {
     width: 100%;
+    min-height: 30rem;
+    min-width: 15rem;
   }
 
   .recommendation__arrow {
@@ -242,6 +244,20 @@
       & {
         opacity: 0.9;
       }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .recommendation__img-arrow {
+    &--prev {
+      left: 0.5rem;
+      padding-right: 20px;
+    }
+
+    &--next {
+      right: 0.5rem;
+      padding-left: 20px;
     }
   }
 }
