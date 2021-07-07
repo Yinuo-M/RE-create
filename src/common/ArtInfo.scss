@@ -74,7 +74,7 @@
   margin-bottom: 0.4rem;
 }
 
-.art-info__button {
+.standard-button.art-info__button {
   margin: 0.5rem 0;
 }
 
@@ -161,11 +161,9 @@
       color: var(--white);
     }
 
-    .art-info__button {
-      &.standard-button {
-        color: var(--dark-pink);
-        border: var(--dark-pink) 1px solid;
-      }
+    .standard-button.art-info__button {
+      color: var(--dark-pink);
+      border: var(--dark-pink) 1px solid;
 
       &::before {
         background: var(--light-pink);
@@ -203,17 +201,17 @@
     .art-info__detail-wrapper {
       margin-top: 4rem;
     }
-  }
 
-  .fav-button,
-  .fav-button--true {
-    &::after {
-      left: 1rem;
-      top: 0.35rem;
-    }
+    .standard-button.fav-button,
+    .standard-button.fav-button--true {
+      &::after {
+        left: 1rem;
+        top: 0.35rem;
+      }
 
-    & .standard-button__text {
-      padding-left: 2rem;
+      & .standard-button__text {
+        padding-left: 2rem;
+      }
     }
   }
 

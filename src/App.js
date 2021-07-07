@@ -4,7 +4,7 @@ import Footer from "./common/Footer";
 import Home from "./home/Home";
 import Favourites from "./favourites/Favourites";
 import "./App.scss";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, HashRouter } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <HashRouter>
       <div className={`body-wrapper ${hasBgImg ? "background-image" : ""}`}>
         <Nav />
         <Switch>
@@ -32,7 +32,7 @@ function App() {
         </Switch>
         <Footer />
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 

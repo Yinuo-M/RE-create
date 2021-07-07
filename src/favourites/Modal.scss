@@ -27,7 +27,7 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.exit {
+.exit.standard-button {
   border: none;
   position: absolute;
   top: 1.5rem;
@@ -53,7 +53,7 @@
   }
 }
 
-.art-info--fav {
+.art-info--fav.art-info {
   display: flex;
   padding: 0;
   column-gap: 0;
@@ -106,7 +106,7 @@
 }
 
 @media (max-width: 1050px) {
-  .art-info--fav {
+  .art-info--fav.art-info {
     .art-info__text-wrapper {
       padding: 3rem 4rem;
     }
@@ -118,7 +118,7 @@
 }
 
 @media (max-width: 850px) {
-  .art-info--fav {
+  .art-info--fav.art-info {
     flex-direction: column;
     margin-top: 2.5rem;
 
@@ -155,7 +155,7 @@
       padding: 0.2rem 0.7rem;
     }
 
-    .fav-button {
+    .fav-button.standard-button {
       &::after {
         left: 0.8rem;
         top: 0.4rem;
@@ -174,7 +174,7 @@
   }
 
   @media (max-width: 600px) {
-    .art-info--fav {
+    .art-info--fav.art-info {
       .art-info__image {
         max-width: 90%;
       }
@@ -191,7 +191,7 @@
   }
 
   @media (max-width: 400px) {
-    .art-info--fav {
+    .art-info--fav.art-info {
       .art-info__image {
         max-width: 95%;
       }
