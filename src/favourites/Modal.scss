@@ -178,6 +178,10 @@
       .art-info__image {
         max-width: 90%;
       }
+
+      .art-info__name {
+        font-size: 2.2rem;
+      }
     }
 
     .modal {
@@ -192,9 +196,21 @@
         max-width: 95%;
       }
 
+      .art-info__name {
+        font-size: 2rem;
+      }
+
+      .art-info__title {
+        font-size: 1.6rem;
+      }
+
       .fav-button .standard-button__text {
         font-size: 1.1rem;
       }
     }
+  }
+
+  .exit {
+    right: 0.6rem;
   }
 }
