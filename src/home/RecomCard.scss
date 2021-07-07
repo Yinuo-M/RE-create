@@ -78,6 +78,9 @@
   margin: 0;
   padding: 1.2rem 0.7rem 0 0.7rem;
   transition: transform 0.2s;
+  position: relative;
+  z-index: 100;
+  @include common.flex-center;
 
   &::after,
   &::before {
@@ -106,6 +109,7 @@
   text-decoration: underline;
   transition: color 0.1s;
   margin: 0;
+  text-align: center;
 
   &:hover,
   &:focus-visible {
@@ -150,6 +154,10 @@
 
   .recommendation__arrow--next {
     right: 5%;
+  }
+
+  .recommendation__name {
+    max-width: 35rem;
   }
 }
 
@@ -246,6 +254,20 @@
       }
     }
   }
+
+  .recommendation__artist {
+    --artist: 300 1.5rem var(--font);
+  }
+
+  .recommendation__name {
+    --h3: 500 2rem var(--font);
+    margin-top: 1.5rem;
+    max-width: 30rem;
+  }
+
+  .recommendation__bookmark {
+    padding: 2rem 0.5rem 0 0.7rem;
+  }
 }
 
 @media (max-width: 500px) {
@@ -259,5 +281,23 @@
       right: 0.5rem;
       padding-left: 20px;
     }
+  }
+
+  .recommendation__block {
+    width: 100%;
+    min-height: 20rem;
+    min-width: 15rem;
+  }
+
+  .recommendation__artist {
+    --artist: 300 1.3rem var(--font);
+  }
+
+  .recommendation__name {
+    --h3: 500 1.7rem var(--font);
+  }
+
+  .recommendation__bookmark {
+    padding: 1.7rem 0.4rem 0 0.7rem;
   }
 }
