@@ -34,6 +34,7 @@ export default function Modal(props) {
 
   return (
     <ReactModal
+      className="modal"
       isOpen={true}
       aria={{
         labelledby: "art-title",
@@ -45,26 +46,13 @@ export default function Modal(props) {
           justifyContent: "center",
           alignItems: "center",
         },
-        content: {
-          background: "#f5f2ed",
-          position: "relative",
-          width: "1000px",
-          maxWidth: "95%",
-          height: "650px",
-          maxHeight: "80vh",
-          top: "0",
-          right: "0",
-          left: "0",
-          bottom: "0",
-          padding: "0",
-          border: "none",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        },
       }}
     >
-      {art ? <ArtInfo className="fav" art={art} /> : <Loader className="fav-loader"/>}
+      {art ? (
+        <ArtInfo className="fav" art={art} />
+      ) : (
+        <Loader className="fav-loader" />
+      )}
       <Button
         className="exit"
         imgUrl={exitIcon}

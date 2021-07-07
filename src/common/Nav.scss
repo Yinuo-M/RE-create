@@ -148,6 +148,10 @@
     transition: transform 0.2s;
     height: 25px;
     width: auto;
+
+    .background-image & {
+      filter: brightness(0) saturate(100%) invert(96%) sepia(3%) saturate(1137%) hue-rotate(319deg) brightness(104%) contrast(89%);
+    }
   }
 
   .nav__link {
@@ -183,6 +187,7 @@
 
   .nav {
     justify-content: flex-start;
+    --logo: 500 1.7rem var(--font);
   }
 
   .nav__img {

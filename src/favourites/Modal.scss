@@ -4,6 +4,29 @@
   overflow: hidden;
 }
 
+.modal {
+  background-color: #f5f2ed;
+  position: relative;
+  width: 1000px;
+  max-width: 95%;
+  height: 650px;
+  max-height: 80vh;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  -webkit-overflow-scrolling: touch;
+}
+
 .exit {
   border: none;
   position: absolute;
@@ -57,7 +80,7 @@
   }
 
   .art-info__name {
-    font-size: 2.44rem;
+    font-size: 2.6rem;
   }
 
   .art-info__text,
@@ -66,7 +89,7 @@
   }
 
   .art-info__title {
-    font-size: 1.88rem;
+    font-size: 1.8rem;
   }
 
   .art-info__block--header {
@@ -80,4 +103,98 @@
 
 .fav-loader {
   @include common.flex-center;
+}
+
+@media (max-width: 1050px) {
+  .art-info--fav {
+    .art-info__text-wrapper {
+      padding: 3rem 4rem;
+    }
+
+    .art-info__image {
+      max-width: 80%;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .art-info--fav {
+    flex-direction: column;
+    margin-top: 2.5rem;
+
+    .art-info__image-wrapper {
+      border-right: none;
+      padding-bottom: 0;
+    }
+
+    .art-info__text-wrapper {
+      padding: 1rem 2rem 3rem 2rem;
+      align-items: center;
+    }
+
+    .art-info__block {
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .art-info__block--header {
+      margin-bottom: 2rem;
+    }
+
+    .art-info__name,
+    .art-info__title {
+      margin: 0;
+      text-align: center;
+    }
+
+    .art-info__text {
+      text-align: center;
+    }
+
+    .standard-button {
+      padding: 0.2rem 0.7rem;
+    }
+
+    .fav-button {
+      &::after {
+        left: 0.8rem;
+        top: 0.4rem;
+      }
+
+      .standard-button__text {
+        padding-left: 2rem;
+      }
+    }
+
+    .modal {
+      height: 1000px;
+      max-height: 90vh;
+      max-width: 80%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .art-info--fav {
+      .art-info__image {
+        max-width: 90%;
+      }
+    }
+
+    .modal {
+      max-width: 95%;
+      max-height: 95vh;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .art-info--fav {
+      .art-info__image {
+        max-width: 95%;
+      }
+
+      .fav-button .standard-button__text {
+        font-size: 1.1rem;
+      }
+    }
+  }
 }

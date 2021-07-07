@@ -39,3 +39,52 @@
 .fav-list__item .standard-button__text {
   display: none;
 }
+
+@media (max-width: 1450px) {
+  .fav-list__item {
+    margin-bottom: 4rem;
+    width: 350px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .fav-list__item {
+    margin-bottom: 3.5rem;
+    width: 300px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .fav-list__item {
+    margin-bottom: 3rem;
+    width: 260px;
+  }
+}
+
+@media (max-width: 900px) {
+  .fav-list__item {
+    margin-bottom: 4rem;
+    width: 450px;
+  }
+}
+
+@media (max-width: 500px) {
+  .fav-list__item {
+    margin-bottom: 3rem;
+    width: 350px;
+  }
+}
+
+@media (max-width: 400px) {
+  .fav-list__item {
+    margin-bottom: 2.5rem;
+    width: 300px;
+  }
+}
+
+@media (max-width: 350px) {
+  .fav-list__item {
+    margin-bottom: 2.3rem;
+    width: 270px;
+  }
+}

@@ -6,6 +6,7 @@
   justify-content: flex-end;
   max-width: 1366px;
   margin: auto;
+  padding-right: 1rem;
 }
 
 .filter__label {
@@ -14,10 +15,29 @@
   margin-right: 0.6rem;
 }
 
-
 .filter__sort {
   text-align: center;
   padding: 0.1em 0 0.1rem 0.5rem;
   font: var(--p);
   color: var(--red);
+}
+
+@media (max-width: 1200px) {
+  .filter {
+    --p: 1.3rem/1.15 var(--font);
+    --filter: 1.5rem var(--font);
+  }
+}
+
+@media (max-width: 800px) {
+  .filter {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .filter {
+    --p: 1.1rem/1.15 var(--font);
+    --filter: 1.3rem var(--font);
+  }
 }

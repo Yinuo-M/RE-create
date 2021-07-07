@@ -9,7 +9,6 @@ import arrowRightSmall from "../assets/arrow-right--small.svg";
 import bookmark from "../assets/bookmark-light.svg";
 import bookmarkFill from "../assets/bookmark-fill-light.svg";
 import "./RecomCard.scss";
-import { useSwipeable } from "react-swipeable";
 
 export default function RecomCard(props) {
   const [objectInfo, setObjectInfo] = useState(null);
@@ -93,11 +92,6 @@ export default function RecomCard(props) {
       setLoading(false);
     }
   }
-
-  const swipes = useSwipeable({
-    onSwipedLeft: changeObject.bind(this, "prev"),
-    onSwipedRight: changeObject.bind(this, "next"),
-  });
 
   return (
     <div className="recommendation__card">

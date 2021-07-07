@@ -2,8 +2,7 @@
 
 .message {
   text-align: center;
-  padding-top: 42vh;
-  padding-bottom: 4rem;
+  padding: 42vh 2rem 4rem 2rem;
 }
 
 .message__text {
@@ -19,6 +18,7 @@
 }
 
 .message__suggestion {
+  display: block;
   position: relative;
   left: 7rem;
 }
@@ -73,4 +73,71 @@
 .message__button-text {
   z-index: 1;
   position: relative;
+}
+
+@media (max-width: 900px) {
+  .message__suggestion {
+    left: 5rem;
+  }
+
+  .message__empty {
+    right: 10rem;
+  }
+
+  .message__text {
+    --fav-empty: 2.5rem var(--font);
+  }
+}
+
+@media (max-width: 700px) {
+  .message__suggestion {
+    left: 4rem;
+  }
+
+  .message__empty {
+    right: 8rem;
+  }
+
+  .message__text {
+    --fav-empty: 2.3rem var(--font);
+  }
+}
+
+@media (max-width: 600px) {
+  .message__suggestion {
+    left: 2.5rem;
+  }
+
+  .message__empty {
+    right: 6.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .message__suggestion {
+    left: 2rem;
+  }
+
+  .message__empty {
+    right: 5rem;
+  }
+
+  .message__text {
+    --fav-empty: 2rem var(--font);
+  }
+}
+
+@media (max-width: 400px) {
+  .message__suggestion {
+    left: 0;
+    margin-top: 0.7rem;
+  }
+
+  .message__empty {
+    right: 0;
+  }  
+
+  .message__text {
+    --fav-empty: 1.7rem var(--font);
+  }
 }
